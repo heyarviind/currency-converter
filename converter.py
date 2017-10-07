@@ -24,6 +24,22 @@ rates = {
     "yen" : {
         "value" : 112.63,
         "symbol" : '¥'
+    },
+    "aud" : {
+        "value" : 1.29,
+        "symbol" : '$'
+    },
+    "nzd" : {
+        "value" : 1.41,
+        "symbol" : '$'
+    },
+    "zar" : {
+        "value" : 13.77,
+        "symbol" : 'R'
+    },
+    "sek" : {
+        "value" : 8.12,
+        "symbol" : 'kr'
     }
 }
 
@@ -40,7 +56,7 @@ result = ''
 userInput = input("Enter the query : ").lower()
 splittedInput = userInput.split(" ")
 
-#Put the data into the list
+#Put the data into the dictionary
 userQuery['currencyValue'] = float(splittedInput[0])
 userQuery['fromCurrency'] = str(splittedInput[1])
 userQuery['toCurrency'] = str(splittedInput[3])
@@ -53,6 +69,6 @@ if(userQuery['fromCurrency'] in rates.keys() and userQuery['toCurrency'] in rate
         result = (userQuery['currencyValue'] / rates[userQuery['fromCurrency']]['value']) * rates[userQuery['toCurrency']]['value']
 
     print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
-    
+
 else:
     print("Please enter the correct format, example: 400 USD to INR")
