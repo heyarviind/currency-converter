@@ -36,7 +36,7 @@ userQuery = {
     'fromCurrency' : '',
     'toCurrency' : ''
 }
-
+result = ''
 userInput = input("Enter the query : ").lower()
 splittedInput = userInput.split(" ")
 
@@ -49,9 +49,10 @@ userQuery['toCurrency'] = str(splittedInput[3])
 if(userQuery['fromCurrency'] in rates.keys() and userQuery['toCurrency'] in rates.keys()):
     if userQuery['toCurrency'] == 'usd':
         result = userQuery['currencyValue'] / rates[userQuery['fromCurrency']]['value']
-        print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
     else:
         result = (userQuery['currencyValue'] / rates[userQuery['fromCurrency']]['value']) * rates[userQuery['toCurrency']]['value']
-        print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
+
+    print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
+    
 else:
     print("Please enter the correct format, example: 400 USD to INR")
