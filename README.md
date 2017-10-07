@@ -1,5 +1,5 @@
 # currency-converter
-Google Currency Converter written in python
+Google like currency Converter written in python
 
 conversion example
 `300 USD to INR`
