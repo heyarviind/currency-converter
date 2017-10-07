@@ -1,17 +1,33 @@
 #currency converter like google
-import math
 
 rates = {
-    "usd" : 1,
-    "inr" : 65.44,
-    "cad" : 1.25,
-    "eur" : 0.85,
-    "gbp" : 0.77,
-    "yen" : 112.63
+    "usd" : {
+        "value" : 1,
+        "symbol" : '$'
+    },
+    "inr" : {
+        "value" : 65.44,
+        "symbol" : '₹'
+    },
+    "cad" : {
+        "value" : 1.25,
+        "symbol" : '$'
+    },
+    "eur" : {
+        "value" : 0.85,
+        "symbol" : '€'
+    },
+    "gbp" : {
+        "value" : 0.77,
+        "symbol" : '£'
+    },
+    "yen" : {
+        "value" : 112.63,
+        "symbol" : '¥'
+    }
 }
 
 #Logic
-
 #print("200 INR to CAD = %.3f" % ((200 / rates["inr"]) * rates["cad"]))
 #print("3 INR to USD = %.3f" % (3 / rates["inr"]))
 
@@ -30,8 +46,8 @@ userQuery['fromCurrency'] = str(splittedInput[1])
 userQuery['toCurrency'] = str(splittedInput[3])
 
 if userQuery['toCurrency'] == 'usd':
-    result = userQuery['currencyValue'] / rates['inr']
-    print("%.3f" % result)
+    result = userQuery['currencyValue'] / rates['inr']['value']
+    print(symbols[userQuery['toCurrency']] + "%.3f" % result)
 else:
-    result = (userQuery['currencyValue'] / rates[userQuery['fromCurrency']]) * rates[userQuery['toCurrency']]
-    print("%.3f" % result)
+    result = (userQuery['currencyValue'] / rates[userQuery['fromCurrency']]['value']) * rates[userQuery['toCurrency']]['value']
+    print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
