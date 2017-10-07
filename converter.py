@@ -47,7 +47,7 @@ userQuery['toCurrency'] = str(splittedInput[3])
 
 if userQuery['toCurrency'] == 'usd':
     result = userQuery['currencyValue'] / rates['inr']['value']
-    print(symbols[userQuery['toCurrency']] + "%.3f" % result)
+    print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
 else:
     result = (userQuery['currencyValue'] / rates[userQuery['fromCurrency']]['value']) * rates[userQuery['toCurrency']]['value']
     print(rates[userQuery['toCurrency']]['symbol'] + "%.3f" % result)
